@@ -7,6 +7,7 @@
 	* 고객이름과 등급 속성은 값을 반드시 입력해야 하고,
 	* 적립금 속성은 값을 입력하지 않으면 0이 기본으로 입력되도록 고객 테이블을 생성하시오.
 */
+DROP TABLE 고객 CASCADE CONSTRAINT;
 CREATE TABLE 고객 (
 	고객아이디		VARCHAR(20) NOT NULL
 	,고객이름 		VARCHAR(10) NOT NULL
@@ -24,7 +25,7 @@ DROP TABLE 고객;
   * 제품번호 속성이 기본키이다.
   * 재고량은 항상 0개 이상 10,000개 이하를 유지하도록 제품 테이블을 생성하시오.
   */
- 
+DROP TABLE 제품 CASCADE CONSTRAINT; 
 CREATE TABLE 제품 (
 	제품번호	char(3)  NOT NULL 
 	,제품명	varchar(20)
@@ -42,7 +43,7 @@ CREATE TABLE 제품 (
  * 주문제품 속성이 제품 테이블의 제품번호 속성을 참조하는 외래키가 되도록
  * 주문 테이블을 생성하시오.
  */
-
+DROP TABLE 주문 CASCADE CONSTRAINT;
 CREATE TABLE 주문 (
 	주문번호	char(3) NOT NULL
 	,주문고객	varchar(20)
@@ -69,8 +70,32 @@ CREATE TABLE 배송업체(
 	,PRIMARY KEY(업체번호)	
 );
 
-
-
-
-
+/*
+  생성한 고객 테이블에 가입날짜 속성을 추가하시오. 
+*/
+alter table 고객
+    add 가입날짜 date;
+    
+/*
+    추가한 고객 테이블의 가입날짜 속성을 삭제하시오
+*/
+alter table 고객
+  drop column 가입날짜;
+  
+/*
+    고객 테이블에 20세 이상의 고객만 가입할 수 있다는 데이터 무결성 제약조건을 추가하시오.
+*/
+alter table 고객 
+    add constraint chk_age check(나이 >= 20);
+    
+/*
+    추가한 고객 테이블에 20이상의 고객만 가입할 수 있다는 제약조건을 삭제하시오.
+*/
+alter table 고객
+    drop constraint chk_age;
+    
+/*
+    배송업체 테이블을 삭제하시오.
+*/
+drop table 배송업체;
 
