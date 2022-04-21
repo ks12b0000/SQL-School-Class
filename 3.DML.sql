@@ -15,7 +15,7 @@ COMMIT;
 
 SELECT * FROM 고객;
 
-DELETE FROM 고객;
+DELETE FROM 고객;			//고객테이블의 데이터를 삭제
 COMMIT;
 
 --고객 테이블에 튜플 삽입

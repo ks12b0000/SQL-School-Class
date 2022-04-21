@@ -7,7 +7,7 @@
 	* 고객이름과 등급 속성은 값을 반드시 입력해야 하고,
 	* 적립금 속성은 값을 입력하지 않으면 0이 기본으로 입력되도록 고객 테이블을 생성하시오.
 */
-DROP TABLE 고객 CASCADE CONSTRAINT;
+DROP TABLE 고객 CASCADE CONSTRAINT;  --해당 테이블과 관계가 있던 참조 제약조건에 대해서도 삭제한다는 것을 의미
 CREATE TABLE 고객 (
 	고객아이디		VARCHAR(20) NOT NULL
 	,고객이름 		VARCHAR(10) NOT NULL
@@ -25,7 +25,7 @@ DROP TABLE 고객;
   * 제품번호 속성이 기본키이다.
   * 재고량은 항상 0개 이상 10,000개 이하를 유지하도록 제품 테이블을 생성하시오.
   */
-DROP TABLE 제품 CASCADE CONSTRAINT; 
+DROP TABLE 제품 CASCADE CONSTRAINT; --해당 테이블과 관계가 있던 참조 제약조건에 대해서도 삭제한다는 것을 의미
 CREATE TABLE 제품 (
 	제품번호	char(3)  NOT NULL 
 	,제품명	varchar(20)
@@ -43,7 +43,7 @@ CREATE TABLE 제품 (
  * 주문제품 속성이 제품 테이블의 제품번호 속성을 참조하는 외래키가 되도록
  * 주문 테이블을 생성하시오.
  */
-DROP TABLE 주문 CASCADE CONSTRAINT;
+DROP TABLE 주문 CASCADE CONSTRAINT;  --해당 테이블과 관계가 있던 참조 제약조건에 대해서도 삭제한다는 것을 의미
 CREATE TABLE 주문 (
 	주문번호	char(3) NOT NULL
 	,주문고객	varchar(20)
