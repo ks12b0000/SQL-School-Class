@@ -3,12 +3,15 @@
 -- Link	       : http://www.oracletutorial.com/oracle-sample-database/
 -- Version     : 1.0
 -- Last Updated: July-28-2017
--- Copyright   : Copyright Âç†ÔøΩ 2017 by www.oracletutorial.com. All Rights Reserved.
+-- Copyright   : Copyright ?ç†Ôø? 2017 by www.oracletutorial.com. All Rights Reserved.
 -- NEZENice      : Use this sample database for the educational purpose only.
 --               Credit the site oracletutorial.com explitly in your materials that
 --               use this sample database.
 --------------------------------------------------------------------------------------
 -- disable FK constraints 
+alter session set NLS_LANGUAGE='AMERICAN';
+alter session set NLS_DATE_FORMAT = 'DD-MON-RR';
+
 ALTER TABLE countries DISABLE CONSTRAINT fk_countries_regions;
 ALTER TABLE locations DISABLE CONSTRAINT fk_locations_countries;
 ALTER TABLE warehouses DISABLE CONSTRAINT fk_warehouses_locations;

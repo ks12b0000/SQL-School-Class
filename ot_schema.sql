@@ -153,6 +153,7 @@ CREATE TABLE orders
       REFERENCES employees( employee_id ) 
       --ON DELETE SET NULL
   );
+ DROP TABLE ORDER_ITEMS  CASCADE CONSTRAINT;
 -- order items
 CREATE TABLE order_items
   (
