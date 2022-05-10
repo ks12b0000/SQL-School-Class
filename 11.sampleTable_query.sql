@@ -49,14 +49,33 @@ ORDER BY a.product_name
 ;
 
 
+--인라인 뷰 서브 쿼리
+SELECT ORDER_ID 
+	   ,SUM(QUANTITY * UNIT_PRICE) ORDER_VALUE
+FROM ORDER_ITEMS oi 
+GROUP BY ORDER_ID 
+ORDER BY ORDER_VALUE DESC 
+;
+
+SELECT ORDER_ID 
+	 	,ORDER_VALUE
+FROM 
+(
+	SELECT ORDER_ID 
+	   		,SUM(QUANTITY * UNIT_PRICE) ORDER_VALUE
+	FROM ORDER_ITEMS oi 
+	GROUP BY ORDER_ID 
+	ORDER BY ORDER_VALUE DESC 
+)
+WHERE ROWNUM <= 10
+;
 
 
-
-
-
-
-
-
+/*
+ * 	결과값 일부 조회
+ * 		- ROWNUM(가상줄번호)
+ * 			- SQL 쿼리 결과 중 상위 몇 개만 보여주는 쿼리
+ */
 
 
 

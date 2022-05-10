@@ -28,7 +28,7 @@ CREATE TABLE countries
     region_id    NUMBER                 , -- fk
     CONSTRAINT fk_countries_regions FOREIGN KEY( region_id )
       REFERENCES regions( region_id ) 
-      ON DELETE CASCADE
+      ON DELETE CASCADE			--regions 테이블의 투플도 함께 삭제.
   );
 
 -- location
@@ -146,12 +146,12 @@ CREATE TABLE orders
     CONSTRAINT fk_orders_customers 
       FOREIGN KEY( customer_id )
       REFERENCES customers( customer_id )
-      --ON DELETE CASCADE
+      ON DELETE CASCADE
       ,
     CONSTRAINT fk_orders_employees 
       FOREIGN KEY( salesman_id )
       REFERENCES employees( employee_id ) 
-      --ON DELETE SET NULL
+      ON DELETE SET NULL		-- employees의 employees_id 속성 값을 NULL로 변경
   );
  DROP TABLE ORDER_ITEMS  CASCADE CONSTRAINT;
 -- order items
