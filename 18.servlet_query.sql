@@ -15,6 +15,11 @@ CREATE TABLE t_member
 INSERT INTO T_MEMBER VALUES ('lee', '0824', '이순신', 'lee@email.com', SYSDATE);
 INSERT INTO T_MEMBER VALUES ('hong', '0824', '홍길동' , 'hong@email.com', SYSDATE);
 INSERT INTO T_MEMBER VALUES ('shin', '0824', '신사임당', 'shin@email.com', SYSDATE);
+
+INSERT INTO T_MEMBER (id, pwd, name, email) 
+VALUES ('test', '0824', '테스트', 'test@gmail.com');
+
+ROLLBACK;
 COMMIT;
 
 SELECT * FROM T_MEMBER;
